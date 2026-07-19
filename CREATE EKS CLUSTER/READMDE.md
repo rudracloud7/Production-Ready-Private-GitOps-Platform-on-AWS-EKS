@@ -13,8 +13,6 @@
    aws configure
    ```
 
-   ![aws-configure](output_images/image-2.png)
-
 2. **eksctl** installed
 
    ```bash
