@@ -17,7 +17,7 @@
    sudo mv /tmp/eksctl /usr/local/bin
    ```
 
-  Check installation:
+   Check installation:
 
    ```bash
    eksctl version
