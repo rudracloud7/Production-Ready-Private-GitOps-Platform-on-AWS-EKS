@@ -1,4 +1,4 @@
-# ArgoCD HTTPS Hosting on EKS
+# ArgoCD on EKS
 
 1. AWS CLI INSTALLED
 
@@ -8,6 +8,12 @@
    unzip awscliv2.zip
    sudo ./aws/install
    ```
+
+    ```bash
+   aws configure
+   ```
+
+   ![aws-configure](output_images/image-2.png)
 
 2. **eksctl** installed
 
