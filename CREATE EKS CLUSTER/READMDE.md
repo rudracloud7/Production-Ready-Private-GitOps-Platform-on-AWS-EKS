@@ -93,6 +93,24 @@ eksctl create nodegroup \
     kubectl get nodes
     ```
 
+3. Now run this command before installing ARGO-CD
+
+    ```bash
+    aws eks describe-cluster \
+    --name argocd-cluster \
+    --region us-east-1 \
+    --query "cluster.resourcesVpcConfig.{Private:endpointPrivateAccess,Public:endpointPublicAccess}"
+    ```
+    
+   The expected output
+
+   ```bash
+   {
+   "Private": false,
+   "Public": true
+   }
+   ```
+
 ### Step 6: Install ArgoCD
 
 1. Create namespace
