@@ -97,5 +97,16 @@ eksctl create nodegroup \
     kubectl create namespace argocd
     ```
 
+2. Install ArgoCD
+
+    ```bash
+    kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    ```
+
+3. Wait for pods to be ready
+
+    ```bash
+    kubectl wait --for=condition=ready pod --all -n argocd --timeout=300s
+    ```
 
 
