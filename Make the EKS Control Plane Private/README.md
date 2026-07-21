@@ -107,11 +107,50 @@
    --source-group <bastion security group id> \
    --region us-east-1
    ```
+   **Our goal is a private EKS API, the final step is to disable the public endpoint.**
+   *Run this command on bastion host**
 
+   ```bash
+   aws eks update-cluster-config \
+   --region us-east-1 \
+   --name argocd-cluster \
+   --resources-vpc-config endpointPublicAccess=false
+   ```
 
+   Then
 
+   ```bash
+   aws eks describe-update \
+   --region us-east-1 \
+   --name argocd-cluster \
+   --update-id <UPDATE_ID>
+   ```
 
+   then verify the endpoint configuration
 
+   ```bash
+   aws eks describe-cluster \
+   --name argocd-cluster \
+   --region us-east-1 \
+   --query "cluster.resourcesVpcConfig.{Private:endpointPrivateAccess,Public:endpointPublicAccess}"
+   ```
+
+   You should see
+
+   ```bash
+   {
+    "Private": true,
+    "Public": false
+   }  
+   ```
+
+   Finally, from your bastion run:
+
+   ```bash
+   kubectl get nodes
+   kubectl get pods -A
+   kubectl cluster-info
+   ```
 
 
 
