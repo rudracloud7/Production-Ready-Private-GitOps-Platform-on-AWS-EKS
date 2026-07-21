@@ -108,7 +108,7 @@
    --region us-east-1
    ```
    **Our goal is a private EKS API, the final step is to disable the public endpoint.**
-   *Run this command on bastion host**
+       *Run this command on bastion host*
 
    ```bash
    aws eks update-cluster-config \
