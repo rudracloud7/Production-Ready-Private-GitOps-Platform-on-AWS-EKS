@@ -94,6 +94,18 @@
      internal
      ```
 
+     To Get DNS
+
+     ```bash
+      aws elbv2 describe-load-balancers \
+     --region us-east-1 \
+     --query "LoadBalancers[?Scheme=='internal'].[DNSName,State.Code]" \
+     --output table
+     ```
+
+     <img width="881" height="282" alt="image" src="https://github.com/user-attachments/assets/cc0fb022-479b-41a2-9cf8-391e93d62326" />
+
+
      Get the Argo CD Password
      ```
      kubectl -n argocd get secret argocd-initial-admin-secret \
