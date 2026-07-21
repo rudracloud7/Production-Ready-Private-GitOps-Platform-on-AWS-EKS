@@ -97,7 +97,7 @@
    --query "NetworkInterfaces[].{ENI:NetworkInterfaceId,PrivateIP:PrivateIpAddress,Groups:Groups[*].GroupId}"
    ```
 
-   Now Run This Command
+   Added an ingress rule allowing TCP 443 from the bastion security group.
 
    ```bash
    aws ec2 authorize-security-group-ingress \
